@@ -1,0 +1,60 @@
+.profile-page {
+position: relative;
+}
+.back-btn {
+  position: absolute;
+  left: 5%;
+  font-size: 18px;
+}
+.profile-name {
+  position: absolute;
+  left: 50%;
+  font-size: 18px;
+}
+.avatar {
+  width: 90px;
+  position: absolute;
+  top: 11%;
+  left: 46%;
+}
+.follow-info {
+  display: flex;
+  position: absolute;
+  top: 31%;
+  left: 36%;
+  text-align: center;
+  &-Lt {
+    margin-right: 25px;
+  }
+  &-Ctr {
+    margin-right: 25px;
+  }
+}
+
+.img-item {
+  position: absolute;
+  bottom: 130px;
+  left: 12%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  &-one {
+    width: 50%;
+  }
+  &-two {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+}
+.img-item-two-list {
+  width: 100%;
+}
+.img-bg {
+  width: 100%;
+}
+
+.img-sml {
+  width: 50%;
+  // height: 50%;
+}
