@@ -1,60 +1,69 @@
-.profile-page {
-position: relative;
+// .profile-page {
+//   margin: auto;
+// }
+.profile-top {
+  position: relative;
 }
 .back-btn {
   position: absolute;
-  left: 5%;
-  font-size: 18px;
+  left: 4%;
+  top: 10px;
+  font-size: 20px;
 }
 .profile-name {
   position: absolute;
   left: 50%;
-  font-size: 18px;
+  top: 20px;
 }
 .avatar {
-  width: 90px;
+  min-width: 90px;
+  max-width: 120px;
   position: absolute;
-  top: 11%;
   left: 46%;
+  top: 10%;
 }
+
 .follow-info {
   display: flex;
-  position: absolute;
-  top: 31%;
-  left: 36%;
+  justify-content: center;
   text-align: center;
+  position: relative;
+  top: 30%;
+  left: 45px;
   &-Lt {
-    margin-right: 25px;
+    margin-right:  20px;
   }
   &-Ctr {
-    margin-right: 25px;
+    margin-right:  20px;
   }
 }
 
+
 .img-item {
-  position: absolute;
-  bottom: 130px;
-  left: 12%;
+  // position: relative;
+  // // top: 30%;
+  // bottom: 130px;
+  // left: 12%;
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  &-one {
-    width: 50%;
-  }
-  &-two {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  }
+  justify-content: center;
+  position: relative;
+  top: 200px;
+  left: 45px
+  // width: 100%;
 }
-.img-item-two-list {
-  width: 100%;
+.img-item-one {
+  width: 300px;
+}
+.img-item-two {
+// flex-direction: column;
+width: 150px;
 }
 .img-bg {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 .img-sml {
-  width: 50%;
-  // height: 50%;
+  max-width: 100%;
+  height: auto;
 }
