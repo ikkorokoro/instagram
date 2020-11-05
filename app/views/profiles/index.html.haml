@@ -1,7 +1,8 @@
 .profile-top
   .back-btn <-
-  .profile-name= @user.account
-= image_tag 'Ellipse.png', class: 'avatar'
+  .profile-name
+= image_tag 'Ellipse.png', class: 'avater', id: 'file_open'
+= file_field :image, id:'ifle_field'
 .follow-info  
   .follow-info-Lt
     %p 44
