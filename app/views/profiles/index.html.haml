@@ -2,7 +2,7 @@
   .back-btn <-
   .profile-name
 -# = form_for(url: user_registration_path, method: 'patch') do |f| 
-= form_with(url: user_registration_path, method: 'post', local: true) do |f|
+= form_with(url: user_registration_path, method: 'update', local: true) do |f|
   -# = f.label :avatar do
   - if current_user.avatar.attached?
     = image_tag current_user.avatar, class: 'avatar'

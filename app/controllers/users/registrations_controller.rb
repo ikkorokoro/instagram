@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  binding.pry
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
 
@@ -14,9 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
     
-    # if account_update_params[:avatar].present?
-    #   current_user.avatar.attach(account_update_params[:avatar])    
-    # end
+    
   end
 
   # GET '/resource/edit'
@@ -27,6 +24,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT '/resource'
   def update
     super
+    binding.pry
+    if account_update_params[:avatar].present?
+      current_user.avatar.attach(account_update_params[:avatar])    
+    end
   end
 
   # DELETE '/resource'
