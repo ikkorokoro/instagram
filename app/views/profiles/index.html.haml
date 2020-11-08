@@ -1,8 +1,13 @@
 .profile-top
   .back-btn <-
   .profile-name
-= image_tag 'Ellipse.png', class: 'avater', id: 'file_open'
-= file_field :image, id:'ifle_field'
+-# = form_for(url: user_registration_path, method: 'patch') do |f| 
+= form_with(url: user_registration_path, method: 'post', local: true) do |f|
+  -# = f.label :avatar do
+  - if current_user.avatar.attached?
+    = image_tag current_user.avatar, class: 'avatar'
+  = f.file_field :avatar
+  = f.submit '送信'
 .follow-info  
   .follow-info-Lt
     %p 44
@@ -13,10 +18,14 @@
   .follow-info-Rt
     %p 100
     %p Following
-.img-wrap
-  .img-item
-    .img-item-one
+  .grid-img
+    .img-item-one#itema
       = image_tag 'Rectangle (2).png', class: 'img-bg'
-    .img-item-two
+    .img-item-two#itemb
       = image_tag 'Rectangle (3).png', class: 'img-sml'
-      = image_tag 'Rectangle (4).png', class: 'img-sml'
+    .img-item-two#itemc
+      = image_tag 'Rectangle (4).png', class: 'img-sml' 
+-# - if current_user.avatar.attached?
+-#       = image_tag current_user.avatar, class: 'avater', id: 'avatar'
+-#     - else 
+-#       = image_tag 'Bitmap (1).png', class: 'avater', id: 'avatar'

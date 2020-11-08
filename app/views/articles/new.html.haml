@@ -1,0 +1,13 @@
+.container
+  %ul
+    - @article.errors.full_messages.each do |msg|
+      %li= msg
+  .user-info
+    = current_user.account
+  = form_with(model: @article, local: true) do |f|
+    = f.label :images, '+ Album', class: 'file-btn'
+    = f.file_field :images, multiple: true, class: 'file'
+    .field
+      = f.text_field :content, placeholder: 'What`s on your mind?', class: 'text'
+    %div
+    = f.submit 'post', class: 'btn-article'

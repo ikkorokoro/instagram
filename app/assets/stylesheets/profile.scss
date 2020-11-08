@@ -23,6 +23,10 @@
   top: 10%;
 }
 
+.file {
+  display: none;
+}
+
 .follow-info {
   display: flex;
   justify-content: center;
@@ -39,31 +43,4 @@
 }
 
 
-.img-item {
-  // position: relative;
-  // // top: 30%;
-  // bottom: 130px;
-  // left: 12%;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top: 200px;
-  left: 45px
-  // width: 100%;
-}
-.img-item-one {
-  width: 300px;
-}
-.img-item-two {
-// flex-direction: column;
-width: 150px;
-}
-.img-bg {
-  max-width: 100%;
-  height: auto;
-}
 
-.img-sml {
-  max-width: 100%;
-  height: auto;
-}
