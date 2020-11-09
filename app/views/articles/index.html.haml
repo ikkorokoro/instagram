@@ -1,0 +1,24 @@
+.articles-page
+  - @articles.each do |article|
+    .name-info
+      -# %p= article.user.account
+      %time(datetime="#{article.created_at}")
+        = time_ago_in_words(article.created_at) + "前"
+    - if article.images.attached?
+      .grid-img
+        .grid-img-one#itema
+          = image_tag article.images.first, class: 'img-bg'
+        .grid-img-two#itemb
+          = image_tag article.images.second, class: 'img-sml'
+        .grid-img-two#itemc
+          = image_tag article.images.third, class: 'img-sml' 
+    .click-item
+      = image_tag 'Vector (1).png'
+      = image_tag 'Vector (3) (1).png'
+      = image_tag 'Vector (4) (1).png'
+      = link_to  "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'  do
+        = image_tag 'Vector (2) (1).png'
+    .content-box
+      = article.content
+
+

@@ -1,0 +1,46 @@
+// .profile-page {
+//   margin: auto;
+// }
+.profile-top {
+  position: relative;
+}
+.back-btn {
+  position: absolute;
+  left: 4%;
+  top: 10px;
+  font-size: 20px;
+}
+.profile-name {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+}
+.avatar {
+  min-width: 90px;
+  max-width: 120px;
+  position: absolute;
+  left: 46%;
+  top: 10%;
+}
+
+.file {
+  display: none;
+}
+
+.follow-info {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  top: 30%;
+  left: 45px;
+  &-Lt {
+    margin-right:  20px;
+  }
+  &-Ctr {
+    margin-right:  20px;
+  }
+}
+
+
+
