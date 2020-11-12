@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   }
   get '/users/sign_out' => 'devise/sessions#destroy'
   root to:'articles#index'
-  get '/profile' => 'profiles#index'
+  resources :profiles, only: [:index, :create]
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :articles
 end

@@ -18,12 +18,25 @@
   line-height: 18px;
   display: flex;
   align-items: center;
-
   color: #9E9E9E;
 }
 .click-item {
   margin-left: 20px;
-  
+  display: flex;
+  position: relative;
+  top: 20px;
+}
+.active-heart {
+  margin-right: 5px;
+  line-height: 30px;
+  position: absolute;
+  top: 0px;
+}
+.inactive-heart {
+  margin-right: 5px;
+}
+.comment-btn {
+  margin-right: 5px;
 }
 
 .file-btn {
@@ -42,9 +55,9 @@
   margin: 0 10px 0 0;
   display: inline-block;
 }
-.file {
-  // display: none;
-}
+// .file {
+// // display: none;
+// }
 .btn-article {
   font-family: Poppins;
   font-style: normal;
@@ -62,7 +75,8 @@
 
   }
 .content-box {
-  margin: 20px;
+  margin: 40px 0 40px 20px;
+  font-size: 20px;
 }
 
 time {

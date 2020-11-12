@@ -12,8 +12,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST '/resource'
   def create
     super
-    
-    
   end
 
   # GET '/resource/edit'
@@ -24,10 +22,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT '/resource'
   def update
     super
-    binding.pry
-    if account_update_params[:avatar].present?
-      current_user.avatar.attach(account_update_params[:avatar])    
-    end
   end
 
   # DELETE '/resource'
