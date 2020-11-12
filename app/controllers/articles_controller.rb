@@ -4,6 +4,7 @@ before_action :authenticate_user!
 def index
   @articles = Article.all 
   # binding.pry
+
 end
 def show
   @article = Article.find(params[:id])
