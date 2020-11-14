@@ -26,4 +26,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  def has_liked?(article)
+    likes.exists?(article_id: article.id)
+  end
 end

@@ -8,23 +8,56 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+import $ from 'jquery'
+import axios from 'axios'
+import { csrfToken } from 'rails-ujs'
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-window.addEventListener('load', () => {//画像までの読み込みを行う
-  const uploader = document.querySelector('.file');
-  uploader.addEventListener('change', (e) => {//.fileの値の変更が確定された時
-    const file = uploader.files[0];// files[0] 選択したファイルオブジェクトを取得する
-    const reader = new FileReader();// FileReaderオブジェクトをインスタンス化.a1FileReaderはオブジェクトからデータを読み込むことのみを目的としたオブジェクト
-    reader.readAsDataURL(file);// readAsDataURL(file) file画像の読み込み。データを base64 データurl にエンコードします
-    reader.onload = () => {// onload 読み込みが成功したか調べる
-      const image = reader.result;// result readerの読み込み成功後に、中身のデータを取得する。（読み取り専用）
-      document.querySelector('.avatar').setAttribute('src', image);
+document.addEventListener('turbolinks:load', () => {
+const dataset = $('#article-show').data()
+const articleId = dataset.articleId
+
+axios.get(`/articles/${articleId}/likes`)
+  .then((response) => {
+    const hasLiked = response.data.hasLike
+    if (hasLiked)  {
+      $('.active-heart').removeClass('hidden')
+    } else {
+      $('.inactive-heart').removeClass('hidden')
     }
-  });
-});
+  })
 
+  $('.inactive-heart').on('click', () => {
+    axios.post(`/articles/${articleId}/likes`)
+    .then((response) => {
+      if (response.data.status === 'ok') {
+        $('.active-heart').removeClass('hidden')
+        $('.inactive-heart').addClass('hidden')
+      }
+    })
+    .catch((e) => {
+      window.alert('Error')
+      console.log(e)
+    })
+  })
 
+  $('.active-heart').on('click', () => {
+    axios.delete(`/articles/${articleId}/likes`)
+    .then((response) => {
+      if (response.data.status === 'ok') {
+        $('.inactive-heart').removeClass('hidden')
+        $('.active-heart').addClass('hidden')
+      }
+    })
+  
+    .catch((e) => {
+      window.alert('Error')
+      console.log(e)
+    })
+  })
+})

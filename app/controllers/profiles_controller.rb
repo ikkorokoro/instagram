@@ -5,7 +5,7 @@ def index
 end
 
 def create
-  # current_user.avatar.attach(params[:avatar])
-  # redirect_to profiles_path
+  current_user.avatar.attach(params[:avatar])
+  redirect_to profiles_path
 end
 end
