@@ -8,13 +8,13 @@
 jon = User.create!(email: 'john@example.com', account: 'arigatou', password: 'password')
 emiry = User.create!(email: 'emily@example.com', account: 'gomennnasai', password: 'password')
 
-5.times do #5回繰り返す
+3.times do #5回繰り返す
   jon.articles.create!(
     content: Faker::Lorem.sentence(word_count: 50)
 )
 end
 
-5.times do
+3.times do
   emiry.articles.create!(
     content: Faker::Lorem.sentence(word_count: 50)
 )

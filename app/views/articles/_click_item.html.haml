@@ -1,0 +1,10 @@
+.click-item
+  .active-heart.hidden
+    = image_tag 'Vector (1).png'
+  .inactive-heart.hidden
+    = image_tag 'Vector (3) (1).png'
+  .comment-btn
+    = image_tag 'Vector (4) (1).png'
+  .share-btn
+    = link_to  "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'  do
+      = image_tag 'Vector (2) (1).png'
