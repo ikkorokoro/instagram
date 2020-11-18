@@ -18,9 +18,64 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+const appendNewComment = (comment) => {
+  $('.comment-content').append(//appendはタグの中にhtmlのタグを追加していく
+    `<div><p>${(comment.content)}</p></div>`
+  )
+}
+// const appendNewUser = (user) => {
+//   $('.user-account').append(
+//     `<div><p>${(user.account)}</p></div>`
+//   )
+// }
+
+
+
+
 document.addEventListener('turbolinks:load', () => {
 const dataset = $('#article-show').data()
 const articleId = dataset.articleId
+
+axios.get(`/articles/${articleId}/comments`)
+.then((response) => {
+  const comments = response.data
+  // const users = response.data.user
+  comments.forEach((comment) => {
+    appendNewComment(comment)
+  })
+  // users.forEach((user) => {
+  //   appendNewUser(user)
+  // })
+})
+.catch((error) => {
+  window.alert('失敗')
+})
+
+$('.comment-btn').on('click', () => {
+  $('.comment-post').removeClass('hidden')
+})
+
+$('.comment-post-btn').on('click', () => {
+  const content = $('#comment_content').val()
+  if (!content)  {
+    window.alert('コメントを入力してください')
+  } else {
+    axios.post(`/articles/${articleId}/comments`, {
+      comment: { content: content }
+    })
+  .then((res) => {
+    const comment = res.data.comment
+    // const user = res.data.user
+    appendNewComment(comment)
+    // appendNewUser(user)
+  })
+  $('.comment-post').addClass('hidden')
+  }
+})
+
+
+
 
 axios.get(`/articles/${articleId}/likes`)
   .then((response) => {
@@ -60,4 +115,5 @@ axios.get(`/articles/${articleId}/likes`)
       console.log(e)
     })
   })
+
 })

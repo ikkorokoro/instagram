@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :profile, only: [:index, :create]
   resources :articles do
     resource :likes, only: [:show, :create, :destroy]
+    resources :comments, only: [:index, :create, :destroy]
   end
 end

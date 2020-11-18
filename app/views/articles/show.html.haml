@@ -7,5 +7,20 @@
   = render 'click_item', article: @article
   .content-box
     = @article.content
+.comments-title comments
+.comment
+  .comment-image
+  - if @user.avatar.attached?
+    = imgae_tag @user.avatar
+  - else
+    = image_tag 'Ellipse (1).png', class: 'comment-avatar'
+  .infoandcomment
+    .user-account
+      -# = @user.account 
+    .comment-content
+      -# = comment.content
+.comment-post.hidden
+  = image_tag 'Vector (4) (1).png', class: 'comment-post-btn'
+  = text_field_tag :comment_content, '', class: 'text-area'
 
 
