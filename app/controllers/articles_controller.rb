@@ -4,10 +4,12 @@ before_action :authenticate_user!
 def index
   @articles = Article.all 
   # binding.pry
-
 end
+
 def show
   @article = Article.find(params[:id])
+  @comments = @article.comments
+  @user = @article.user
 end
 
 def new 

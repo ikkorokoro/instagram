@@ -19,6 +19,7 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  include Rails.application.routes.url_helpers
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -26,6 +27,17 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_one :profile, dependent: :destroy
+  before_create :default_avatar
+  def default_avatar
+    if !self.avatar.attached?
+      self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'Bitmap.png')), filename: 'Bitmap.png', content_type: 'image/png')
+    end
+  end
+  # def avatar_url
+  #   avatar.attached?  url_for(avatar) : nil
+  # end
 
   def has_liked?(article)
     likes.exists?(article_id: article.id)

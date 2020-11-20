@@ -7,5 +7,13 @@
   = render 'click_item', article: @article
   .content-box
     = @article.content
+.comments-title comments
+.comment
+  .comment-wrap
+    .comment-image
+    .comment-info
+.comment-post.hidden
+  = image_tag 'Vector (4) (1).png', class: 'comment-post-btn'
+  = text_field_tag :comment_content, '', class: 'text-area'
 
 

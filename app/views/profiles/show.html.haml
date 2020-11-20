@@ -2,12 +2,11 @@
   .back-btn <-
   .profile-name
 -# = form_for(url: user_registration_path, method: 'patch') do |f| 
-= form_with(url: profiles_path, local: true) do |f|
+= form_with(url: profile_path, method: 'put', local: true) do |f|
+  -binding.pry
   = f.label :avatar do
     - if current_user.avatar.attached?
       = image_tag current_user.avatar, class: 'avatar'
-    - else
-      = image_tag 'Bitmap (1).png', class: 'avatar'
   = f.file_field :avatar, class: 'none'
   = f.submit '送信'
 .follow-info  

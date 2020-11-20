@@ -1,11 +1,11 @@
 class ProfilesController < ApplicationController
 before_action :authenticate_user!
 
-def index 
+def show
 end
 
-def create
+def update
   current_user.avatar.attach(params[:avatar])
-  redirect_to profiles_path
+  redirect_to profile_path
 end
 end
