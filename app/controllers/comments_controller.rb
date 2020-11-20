@@ -4,11 +4,7 @@ before_action :authenticate_user!
 def index
   @article = Article.find(params[:article_id])
   @comments = @article.comments
-  @users = @comments.
-  respond_to do |f|
-    f.html { render json: {comments: @comments, user: @user} }
-  end
-  # render json: @user
+  render json: @comments
 end
 
 def create
