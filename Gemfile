@@ -40,6 +40,8 @@ group :development, :test do
   gem 'better_errors'#======================追加
   gem 'binding_of_caller'#==================追加
   gem 'pry-byebug'#=========================追加
+  gem 'letter_opener'
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :development do
