@@ -19,17 +19,17 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-const appendNewComment = (comment) => {
-  $('.comment-content').append(//appendはタグの中にhtmlのタグを追加していく
-    `<div><p>${(comment.content)}</p></div>`
+const appendNewComment = (comment, user) => {
+  $('.comment-info').append(//appendはタグの中にhtmlのタグを追加していく
+    `<div class="user-account"><p>${(comment.content)}</p></div>`
   )
+  $('.comment-info').append(
+    `<div class="comment-content"><p>${(comment.user.account)}</p></div>`
+  )
+    $('.comment-image').append(
+      `<div><img class="comment-avatar"src="${(user.avatar_url)}"</img></div>`
+    )
 }
-// const appendNewUser = (user) => {
-//   $('.user-account').append(
-//     `<div><p>${(user.account)}</p></div>`
-//   )
-// }
-
 
 
 
@@ -40,9 +40,9 @@ const articleId = dataset.articleId
 axios.get(`/articles/${articleId}/comments`)
 .then((response) => {
   const comments = response.data
-  // const users = response.data.user
   comments.forEach((comment) => {
-    appendNewComment(comment)
+    const user = comment.user
+    appendNewComment(comment, user)
   })
   // users.forEach((user) => {
   //   appendNewUser(user)
@@ -65,10 +65,9 @@ $('.comment-post-btn').on('click', () => {
       comment: { content: content }
     })
   .then((res) => {
-    const comment = res.data.comment
-    // const user = res.data.user
-    appendNewComment(comment)
-    // appendNewUser(user)
+    const comment = res.data
+    const user = comment.user
+    appendNewComment(comment, user)
   })
   $('.comment-post').addClass('hidden')
   }
