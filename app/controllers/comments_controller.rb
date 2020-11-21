@@ -10,7 +10,6 @@ end
 def create
   article = Article.find(params[:article_id])
   comment = article.comments.build(params_comment)
-  user = comment.user
   comment.save!
   render json: comment
   # respond_to do |f|
