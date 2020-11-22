@@ -48,6 +48,10 @@ class User < ApplicationRecord
     likes.exists?(article_id: article.id)
   end
 
+  def has_followed?(user)
+    following_relationships.exists?(following_id: user.id)
+  end
+
   def follow!(user)
     following_relationships.create!(following_id: user.id)
   end
