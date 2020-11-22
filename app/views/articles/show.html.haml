@@ -3,6 +3,11 @@
     %p= @article.user.account
     %time(datetime="#{@article.created_at}")
       = time_ago_in_words(@article.created_at) + "前"
+  
+    - if @article.user.avatar.attached?
+      = link_to profile_path do
+        .article-image
+          = image_tag @user.avatar, class: 'article-avatar'
   = render 'images', article: @article
   = render 'click_item', article: @article
   .content-box

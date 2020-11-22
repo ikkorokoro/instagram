@@ -15,14 +15,15 @@
   left: 50%;
   top: 20px;
 }
-.avatar {
-  min-width: 90px;
-  max-width: 120px;
+.profile-image {
   position: absolute;
-  left: 46%;
+  left: 43%;
   top: 10%;
 }
-
+.profile-avatar {
+    min-width: 120px;
+    max-width: 150px; 
+}
 .none {
   display: none;
 }
@@ -32,8 +33,8 @@
   justify-content: center;
   text-align: center;
   position: relative;
-  top: 30%;
-  left: 45px;
+  top: 31%;
+    right: 19px;
   &-Lt {
     margin-right:  20px;
   }
@@ -41,6 +42,10 @@
     margin-right:  20px;
   }
 }
-
+.form-btn {
+  position: absolute;
+  top: 26%;
+  left: 46%;
+}
 
 

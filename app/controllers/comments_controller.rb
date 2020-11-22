@@ -12,11 +12,6 @@ def create
   comment = article.comments.build(params_comment)
   comment.save!
   render json: comment
-  # respond_to do |f|
-  # respond_to do |f|
-  #   f.html { render json: {comment: comment, user: user} }
-  # end
-  # end
 end
 
 private
