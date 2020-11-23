@@ -8,11 +8,10 @@ import axios from 'modules/axios'
     axios.get(`/accounts/${accountId}/follows`)
     .then((response) => {
       const hasFollow = response.data.hasFollow
-  
       if (hasFollow) {
-        $('.follow-btn').removeClass('hidden')
-      } else {
         $('.unfollow-btn').removeClass('hidden')
+      } else {
+        $('.follow-btn').removeClass('hidden')
       }
     })
 
@@ -20,21 +19,18 @@ import axios from 'modules/axios'
       axios.post(`/accounts/${accountId}/follows`)
       .then((response) => {
         const status = response.data.status
+        const follower = response.data.follower
         if (status === 'ok') {
           $('.follow-btn').addClass('hidden')
           $('.unfollow-btn').removeClass('hidden')
+          $('#follower-count').innerHTML = follower
         }
       })
       .catch((e) => {
         window.alert('Error')
         console.log(e)
       })
-      const id = $('#follower-count').textContent
-      const number = parseFloat(id);
-      console.log(number)
-      debugger
-      // $('#follower-count').innerHTML = number;
-      // debugger
+      
      
     })
 
@@ -42,9 +38,11 @@ import axios from 'modules/axios'
       axios.post(`/accounts/${accountId}/unfollows`)
       .then((response) => {
         const status = response.data.status
+        const following = response.data.following
         if (status === 'ok') {
           $('.follow-btn').removeClass('hidden')
           $('.unfollow-btn').addClass('hidden')
+          $('#following-count').innerHTML = following
         }
       })
       .catch((e) => {

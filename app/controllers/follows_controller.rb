@@ -11,6 +11,7 @@ end
 def create
   user = User.find(params[:account_id])
   current_user.follow!(user)
-  render json: {status: 'ok'}
+  count = user.followers.count
+  render json: {status: 'ok', follower: count}
 end
 end
