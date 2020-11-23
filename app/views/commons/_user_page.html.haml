@@ -20,10 +20,10 @@
     %p= @user.articles.count
     %p Post
   .follow-info-Ctr
-    %p= @user.followers.count
+    %p#follower-count= @user.followers.count
     %p Followers
   .follow-info-Rt
-    %p= @user.followings.count
+    %p#following-count= @user.followings.count
     %p Following
 .profile-grid-img
   .grid-img-one#itema

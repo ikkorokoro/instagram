@@ -15,6 +15,7 @@ import axios from 'modules/axios'
         $('.unfollow-btn').removeClass('hidden')
       }
     })
+
       $('.follow-btn').on('click', () => {
       axios.post(`/accounts/${accountId}/follows`)
       .then((response) => {
@@ -28,6 +29,13 @@ import axios from 'modules/axios'
         window.alert('Error')
         console.log(e)
       })
+      const id = $('#follower-count').textContent
+      const number = parseFloat(id);
+      console.log(number)
+      debugger
+      // $('#follower-count').innerHTML = number;
+      // debugger
+     
     })
 
     $('.unfollow-btn').on('click', () => {
@@ -45,6 +53,8 @@ import axios from 'modules/axios'
       })
     })
   })
+
+
 
     window.addEventListener('load', () => {
   const uploader = document.querySelector('.none');
