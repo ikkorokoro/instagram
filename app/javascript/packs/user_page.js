@@ -1,51 +1,52 @@
 import $ from 'jquery'
 import axios from 'modules/axios'
+import {
+  btnAndCountsDisplay
+}from 'modules/handle_counts'
+
+const followBtnAndCountDisplay = (status, follower) => {
+  if (status === 'ok') {
+    $('.follow-btn').removeClass('hidden')
+    $('.unfollow-btn').addClass('hidden')
+    $('#follower-count').text(follower)
+  }
+}
+const unFollowBtnAndCountDisplay = (status, follower) => {
+  if (status === 'ok') {
+    $('.follow-btn').addClass('hidden')
+    $('.unfollow-btn').removeClass('hidden')
+    $('#follower-count').text(follower)
+    // $('#follower-count').innerHTML = `<p>${follower}</p>`
+    // debugger
+  }
+}
 
 
   document.addEventListener('turbolinks:load', () => {
   const id = $('#account-show').data()
     const accountId = id.accountId
-    axios.get(`/accounts/${accountId}/follows`)
-    .then((response) => {
-      const hasFollow = response.data.hasFollow
-      if (hasFollow) {
-        $('.unfollow-btn').removeClass('hidden')
-      } else {
-        $('.follow-btn').removeClass('hidden')
-      }
-    })
+    btnAndCountsDisplay(accountId)
+
 
       $('.follow-btn').on('click', () => {
       axios.post(`/accounts/${accountId}/follows`)
       .then((response) => {
         const status = response.data.status
         const follower = response.data.follower
-        // const follower = String(integer)
-        if (status === 'ok') {
-          $('.follow-btn').addClass('hidden')
-          $('.unfollow-btn').removeClass('hidden')
-          $('#follower-count').textContent = follower
-          debugger
-        }
+        unFollowBtnAndCountDisplay(status, follower)
       })
       .catch((e) => {
         window.alert('Error')
         console.log(e)
       })
-      
-     
     })
 
     $('.unfollow-btn').on('click', () => {
       axios.post(`/accounts/${accountId}/unfollows`)
       .then((response) => {
         const status = response.data.status
-        const following = response.data.following
-        if (status === 'ok') {
-          $('.follow-btn').removeClass('hidden')
-          $('.unfollow-btn').addClass('hidden')
-          $('#following-count').innerHTML = following
-        }
+        const follower = response.data.follower
+        followBtnAndCountDisplay(status, follower)
       })
       .catch((e) => {
         window.alert('Error')

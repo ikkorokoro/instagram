@@ -4,7 +4,7 @@ before_action :authenticate_user!
 def create
   user = User.find(params[:account_id])
   current_user.unfollow!(user)
-  count = user.followings.count
-  render json: {status: 'ok', following: count}
+  follower = user.followers.count
+  render json: {status: 'ok', follower: follower}
 end
 end

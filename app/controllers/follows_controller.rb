@@ -5,13 +5,15 @@ before_action :authenticate_user!
 def index
   user = User.find(params[:account_id])
   has_status = current_user.has_followed?(user)
-  render json: {hasFollow: has_status}
+  follower = user.followers.count
+  following = user.followings.count
+  render json: {hasFollow: has_status, follower: follower, following: following}
 end
 
 def create
   user = User.find(params[:account_id])
   current_user.follow!(user)
-  count = user.followers.count
-  render json: {status: 'ok', follower: count}
+  follower = user.followers.count
+  render json: {status: 'ok', follower: follower}
 end
 end
