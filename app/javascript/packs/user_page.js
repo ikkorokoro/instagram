@@ -20,10 +20,12 @@ import axios from 'modules/axios'
       .then((response) => {
         const status = response.data.status
         const follower = response.data.follower
+        // const follower = String(integer)
         if (status === 'ok') {
           $('.follow-btn').addClass('hidden')
           $('.unfollow-btn').removeClass('hidden')
-          $('#follower-count').innerHTML = follower
+          $('#follower-count').textContent = follower
+          debugger
         }
       })
       .catch((e) => {
