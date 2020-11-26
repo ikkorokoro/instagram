@@ -24,7 +24,7 @@
 # user = users.first
 
 # end
-# ユーザー
+# user
 User.create(
   email:                'aaaaaa@au.com',
   password:             'aaaaaa',
@@ -42,14 +42,14 @@ User.create!(
       )
 end
 
-# マイクロポスト
+# article
 users = User.all
 5.times do
 content = Faker::Lorem.sentence(word_count: 50)
 users.each { |user| user.articles.create!(content: content) }
 end
 
-#リレーションシップ
+#relastionship
 users = User.all
 user = users.first
 following = users[1..6]

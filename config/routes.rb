@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :follows, only: [:index, :create]
     resources :unfollows, only: [:create]
     resources :followings, only: [:index]
-    # resources :followers, only: [:index]
+    resources :followers, only: [:index]
   end
   resources :articles do
     resource :likes, only: [:show, :create, :destroy]

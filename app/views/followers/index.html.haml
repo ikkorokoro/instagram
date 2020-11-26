@@ -1,0 +1,7 @@
+.followers followers
+- unless @users.nil?
+  - @users.each do |user|
+    .followers-content
+      - if user.avatar.attached?
+        = image_tag user.avatar, class: 'comment-avatar'
+      = user.account

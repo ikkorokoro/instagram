@@ -4,7 +4,7 @@ before_action :authenticate_user!
 
 def index
   user = User.find(params[:account_id])
-  @follows = Relationship.all
+  @users = user.followings
   # @users = user.followings
 end
 
