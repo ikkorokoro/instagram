@@ -1,0 +1,10 @@
+- @articles.each do |article|
+  .articles-page
+    = link_to article_path(article) do
+      .name-info
+        = article.user.account
+        %time(datetime="#{article.created_at}")
+          = time_ago_in_words(article.created_at) + "前"
+      = render 'articles/images', article: article
+      .content-box
+        = link_to article.content, article_path(article)

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   }
   get '/users/sign_out' => 'devise/sessions#destroy'
   resource :profile, only: [:show, :edit, :update]
+  resource :timeline, only: [:show]
+
   resources :accounts, only: [:show] do
     resources :follows, only: [:index, :create]
     resources :unfollows, only: [:create]
