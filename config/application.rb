@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Instagram
   class Application < Rails::Application
+    config.time_zone = 'Asia/Tokyo'
+    # config.time_zone = ENV["TZ"]
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
