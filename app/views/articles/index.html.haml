@@ -1,6 +1,7 @@
-= link_to 'プロフィールページ', profile_path
-= link_to 'タイムライン', timeline_path, class: 'timeline'
-= link_to '投稿する', new_article_path
+.top-info
+  %h4= link_to 'プロフィールページ', profile_path
+  %h4= link_to 'タイムライン', timeline_path, class: 'timeline'
+  %h4= link_to '投稿する', new_article_path
 - @articles.each do |article|
   .articles-page
     = link_to article_path(article) do

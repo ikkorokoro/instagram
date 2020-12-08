@@ -11,7 +11,7 @@
     - if !current_page?(root_path)
       / root_pathにいなければtrueになる
       = link_to :back do
-        .back-button  <-
+        %h4.back-btn <-
     - if flash.present?
       / presentはnilでなければtrueとなるflashになにか入っていればtrueとなる
       .flash

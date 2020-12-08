@@ -1,6 +1,6 @@
 
 .name-info {
-  margin: 20px;
+  margin: 40px 25px 25px 25px;
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
@@ -101,5 +101,11 @@ time {
   
   color: #9E9E9E;
   
+  }
+  .top-info {
+    padding: 18px 15px 15px 18px;
+    font-size: large;
+    display: flex;
+    justify-content: space-between;
   }
 
