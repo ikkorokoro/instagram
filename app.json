@@ -1,0 +1,16 @@
+{
+  "name": "instagram",
+  "description": "This is instagram",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/ikkorokoro/instagram",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}

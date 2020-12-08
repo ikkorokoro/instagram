@@ -23,6 +23,8 @@ gem 'devise'
 gem 'faker'
 gem 'active_model_serializers'
 gem 'sidekiq'
+gem 'aws-sdk-s3', require: false
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -43,6 +45,7 @@ group :development, :test do
   gem 'pry-byebug'#=========================追加
   gem 'letter_opener'
   gem 'letter_opener_web', '~> 1.0'
+  gem 'dotenv-rails'
 end
 
 group :development do
