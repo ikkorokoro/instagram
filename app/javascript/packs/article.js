@@ -31,7 +31,7 @@ const appendNewComment = (comment, user) => {
   )
 }
 
-
+//本番環境で動作しない
 document.addEventListener('turbolinks:load', () => {
   const dataset = $('#article-show').data()
   const articleId = dataset.articleId
@@ -48,7 +48,7 @@ document.addEventListener('turbolinks:load', () => {
     })
 
 
-
+//本番環境で動作しない
   $('.comment-post-btn').on('click', () => {
     const content = $('#comment_content').val()
     if (!content) {
