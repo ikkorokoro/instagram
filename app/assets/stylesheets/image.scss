@@ -8,6 +8,19 @@
   // grid-template-columns: 1.5fr 1fr 1fr 3fr;
   // grid-template-rows: 180px 100px 80px 120px auto;
 }
+.profile-grid-img {
+  
+  display: grid;
+  gap: 5px;
+  grid-template-rows: 110px 110px;//高さ
+  grid-template-columns: 47% 47%;//横
+  position: absolute;
+  top: 40%;
+  left: 25%;
+
+  // grid-template-columns: 1.5fr 1fr 1fr 3fr;
+  // grid-template-rows: 180px 100px 80px 120px auto;
+}
 // .grid-img-one {
 //   width: 200px;
 //   height: 200px;

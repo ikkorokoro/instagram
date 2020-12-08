@@ -8,6 +8,10 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    - if !current_page?(root_path)
+      / root_pathにいなければtrueになる
+      = link_to :back do
+        .back-button  <-
     - if flash.present?
       / presentはnilでなければtrueとなるflashになにか入っていればtrueとなる
       .flash

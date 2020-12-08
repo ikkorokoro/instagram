@@ -5,17 +5,54 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-jon = User.create!(email: 'john@example.com', account: 'arigatou', password: 'password')
-emiry = User.create!(email: 'emily@example.com', account: 'gomennnasai', password: 'password')
+# jon = User.create!(email: 'john@example.com', account: 'arigatou', password: 'password')
+# emiry = User.create!(email: 'emily@example.com', account: 'gomennnasai', password: 'password')
 
-3.times do #5回繰り返す
-  jon.articles.create!(
-    content: Faker::Lorem.sentence(word_count: 50)
-)
+# 3.times do #5回繰り返す
+#   jon.articles.create!(
+#     content: Faker::Lorem.sentence(word_count: 50)
+# )
+# end
+
+# 3.times do
+#   emiry.articles.create!(
+#     content: Faker::Lorem.sentence(word_count: 50)
+# )
+
+# users = User.all
+# user = first
+# user = users.first
+
+# end
+# user
+User.create(
+  email:                'aaaaaa@au.com',
+  password:             'aaaaaa',
+  account:              'arigatou'
+  )
+
+5.times do
+email = Faker::Lorem.sentence(word_count: 8) + '@au.com'
+password = 'password'
+account = Faker::Lorem.sentence(word_count: 6)
+User.create!(
+      email:                 email,
+      password:              password,
+      account:               account
+      )
 end
 
-3.times do
-  emiry.articles.create!(
-    content: Faker::Lorem.sentence(word_count: 50)
-)
+# article
+users = User.all
+5.times do
+content = Faker::Lorem.sentence(word_count: 50)
+users.each { |user| user.articles.create!(content: content) }
 end
+
+#relastionship
+users = User.all
+user = users.first
+following = users[1..6]
+followers = users[1..6]
+following.each { |followed| user.follow!(followed) }
+followers.each { |follower| follower.follow!(user) }

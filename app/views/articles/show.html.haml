@@ -3,6 +3,11 @@
     %p= @article.user.account
     %time(datetime="#{@article.created_at}")
       = time_ago_in_words(@article.created_at) + "前"
+    - unless @article.user === current_user
+      - if @article.user.avatar.attached?
+        = link_to account_path(@article.user) do
+          .article-image
+            = image_tag @user.avatar, class: 'article-avatar'
   = render 'images', article: @article
   = render 'click_item', article: @article
   .content-box
@@ -16,4 +21,4 @@
   = image_tag 'Vector (4) (1).png', class: 'comment-post-btn'
   = text_field_tag :comment_content, '', class: 'text-area'
 
-
+= javascript_pack_tag 'article'

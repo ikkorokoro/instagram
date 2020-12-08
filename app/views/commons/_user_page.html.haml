@@ -1,0 +1,36 @@
+.profile-top#account-show{data: {account_id: @user.id}}
+.articles-page
+  - unless @user === current_user
+    .unfollow-btn.hidden
+      Unfollow
+    .follow-btn.hidden
+      Follow
+  .profile-name
+    = @user.account
+-# = form_for(url: user_registration_path, method: 'patch') do |f| 
+= form_with(url: profile_path, method: 'put', local: true) do |f|
+  = f.label :avatar do
+    - if @user.avatar.attached?
+      .profile-image
+        = image_tag @user.avatar, class: 'profile-avatar'
+  = f.file_field :avatar, class: 'none'
+  = f.submit '送信', class: 'form-btn'
+.follow-info  
+  .follow-info-Lt
+    %p= @user.articles.count
+    %p Post
+  .follow-info-Ctr
+    %p#follower-count 0
+    %p Followers
+  .follow-info-Rt
+    %p#following-count 0
+    %p Following
+.profile-grid-img
+  .grid-img-one#itema
+    = image_tag 'Rectangle (2).png', class: 'img'
+  .grid-img-two#itemb
+    = image_tag 'Rectangle (3).png', class: 'img'
+  .grid-img-third#itemc
+    = image_tag 'Rectangle (4).png', class: 'img' 
+
+= javascript_pack_tag 'user_page'
