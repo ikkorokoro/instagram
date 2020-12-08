@@ -1,12 +1,12 @@
 .profile-top#account-show{data: {account_id: @user.id}}
-.articles-page#article-show{data: {article_id: @article}}
-  .back-btn <-
+.articles-page
   - unless @user === current_user
     .unfollow-btn.hidden
       Unfollow
     .follow-btn.hidden
       Follow
   .profile-name
+    = @user.account
 -# = form_for(url: user_registration_path, method: 'patch') do |f| 
 = form_with(url: profile_path, method: 'put', local: true) do |f|
   = f.label :avatar do

@@ -35,7 +35,6 @@ const appendNewComment = (comment, user) => {
 document.addEventListener('turbolinks:load', () => {
   const dataset = $('#article-show').data()
   const articleId = dataset.articleId
-  
   axios.get(`/articles/${articleId}/comments`)
     .then((response) => {
       const comments = response.data
